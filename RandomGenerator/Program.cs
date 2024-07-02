@@ -1,9 +1,22 @@
 ﻿using System;
+using Tynamix.ObjectFiller;
 
-public class Program
+namespace RandomGenerator 
 {
-    public static void Main(string[] args)
+    internal class Program
     {
-        Console.WriteLine("Hello, World!");
+        static void Main(string[] args)
+        {
+            IntRange numberGenerator = new IntRange(min: 0, max: 999);
+            int randomNumber = numberGenerator.GetValue();
+
+            Console.WriteLine(randomNumber);
+
+
+
+
+
+
+        }
     }
 }
