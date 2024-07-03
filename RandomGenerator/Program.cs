@@ -9,7 +9,7 @@ namespace RandomGenerator
         static void Main(string[] args)
         {
             string yesOrNo;
-            do 
+            do
             {
                 try
                 {
@@ -28,16 +28,16 @@ namespace RandomGenerator
                     Console.WriteLine("Enter the value: ");
                     string userInput = Console.ReadLine();
                     int userInputValue = Convert.ToInt32(userInput);
-                                                            
+
                     if (userInputChoiceValue == 1)
                     {
                         GenerateFullName(count: userInputValue);
                     }
-                    else if (userInputChoiceValue == 2) 
+                    else if (userInputChoiceValue == 2)
                     {
                         GenerateEmailAddress(count: userInputValue);
                     }
-                    else if (userInputChoiceValue == 3) 
+                    else if (userInputChoiceValue == 3)
                     {
                         Console.WriteLine("Enter a random starting value: ");
                         string userInputMin = Console.ReadLine();
@@ -46,18 +46,17 @@ namespace RandomGenerator
                         Console.WriteLine("Enter a random starting value: ");
                         string userInputMax = Console.ReadLine();
                         int userInputMaxValue = Convert.ToInt32(userInputMax);
-                        GenerateIntRange(count: userInputValue, min:userInputMinValue, max: userInputMaxValue);
+                        GenerateIntRange(count: userInputValue, min: userInputMinValue, max: userInputMaxValue);
                     }
-                    else if (userInputChoiceValue == 4) 
+                    else if (userInputChoiceValue == 4)
                     {
                         Console.WriteLine("How many words of text do you need?");
                         Console.WriteLine("Enter the number of words: ");
                         string userInputLipsum = Console.ReadLine();
                         int userInputLipsumValue = Convert.ToInt32(userInputLipsum);
                         GenerateLoremIpsum(count: userInputValue, numberOfWords: userInputLipsumValue);
-                    } 
-                    
-                    else 
+                    }
+                    else
                     {
                         Console.WriteLine("You entered an invalid value\nPlease try again");
                     }
@@ -78,16 +77,15 @@ namespace RandomGenerator
 
         static void GenerateFullName(int count)
         {
-          RealNames realNmaesGenerator = new RealNames();
+            RealNames realNameGenerator = new RealNames();
 
-          for (int i = 0; i < count; i++)
-          {
-              string fullNameRandom = realNmaesGenerator.GetValue();
-              Console.WriteLine(fullNameRandom);
-          }
-                
+            for (int i = 0; i < count; i++)
+            {
+                string fullNameRandom = realNameGenerator.GetValue();
+                Console.WriteLine(fullNameRandom);
+            }
         }
-        
+
         static void GenerateEmailAddress(int count)
         {
             EmailAddresses emailGenerator = new EmailAddresses();
@@ -112,7 +110,7 @@ namespace RandomGenerator
 
         static void GenerateLoremIpsum(int count, int numberOfWords)
         {
-            Lipsum lipsumGenerator = new Lipsum(LipsumFlavor.LoremIpsum, minWords: numberOfWords);
+            Lipsum lipsumGenerator = new Lipsum(LipsumFlavor.ChildHarold, minWords: numberOfWords);
 
             for (int i = 0; i < count; i++)
             {
