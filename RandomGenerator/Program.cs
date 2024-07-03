@@ -18,7 +18,7 @@ namespace RandomGenerator
                     Console.WriteLine("1 - Full Name Generator");
                     Console.WriteLine("2 - Email Address Generator");
                     Console.WriteLine("3 - Integer Range Generator");
-                    Console.WriteLine("4 - Lipsum Text Generator");
+                    Console.WriteLine("4 - Lorem Ipsum Text Generator");
                     Console.Write("Your choice: ");
 
                     string userInputChoice = Console.ReadLine();
