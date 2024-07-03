@@ -25,7 +25,7 @@ namespace RandomGenerator
                     int userInputChoiceValue = Convert.ToInt32(userInputChoice);
 
                     Console.WriteLine("How many random do you want it to generate?");
-                    Console.WriteLine("Enter the value: ");
+                    Console.Write("Enter the value: ");
                     string userInput = Console.ReadLine();
                     int userInputValue = Convert.ToInt32(userInput);
 
@@ -39,11 +39,11 @@ namespace RandomGenerator
                     }
                     else if (userInputChoiceValue == 3)
                     {
-                        Console.WriteLine("Enter a random starting value: ");
+                        Console.Write("Enter a random starting value: ");
                         string userInputMin = Console.ReadLine();
                         int userInputMinValue = Convert.ToInt32(userInputMin);
 
-                        Console.WriteLine("Enter a random starting value: ");
+                        Console.Write("Enter a random starting value: ");
                         string userInputMax = Console.ReadLine();
                         int userInputMaxValue = Convert.ToInt32(userInputMax);
                         GenerateIntRange(count: userInputValue, min: userInputMinValue, max: userInputMaxValue);
@@ -51,7 +51,7 @@ namespace RandomGenerator
                     else if (userInputChoiceValue == 4)
                     {
                         Console.WriteLine("How many words of text do you need?");
-                        Console.WriteLine("Enter the number of words: ");
+                        Console.Write("Enter the number of words: ");
                         string userInputLipsum = Console.ReadLine();
                         int userInputLipsumValue = Convert.ToInt32(userInputLipsum);
                         GenerateLoremIpsum(count: userInputValue, numberOfWords: userInputLipsumValue);
@@ -78,7 +78,9 @@ namespace RandomGenerator
         static void GenerateFullName(int count)
         {
             RealNames realNameGenerator = new RealNames();
-
+            
+            Console.WriteLine("Full Names:");
+            
             for (int i = 0; i < count; i++)
             {
                 string fullNameRandom = realNameGenerator.GetValue();
@@ -89,7 +91,9 @@ namespace RandomGenerator
         static void GenerateEmailAddress(int count)
         {
             EmailAddresses emailGenerator = new EmailAddresses();
-
+            
+            Console.WriteLine("Email Adresses:");
+            
             for (int i = 0; i < count; i++)
             {
                 string emailRandom = emailGenerator.GetValue();
@@ -100,7 +104,9 @@ namespace RandomGenerator
         static void GenerateIntRange(int count, int min, int max)
         {
             IntRange intGenerator = new IntRange(min: min, max: max);
-
+            
+            Console.WriteLine("Random Numbers:");
+            
             for (int i = 0; i < count; i++)
             {
                 int intRandom = intGenerator.GetValue();
@@ -111,7 +117,9 @@ namespace RandomGenerator
         static void GenerateLoremIpsum(int count, int numberOfWords)
         {
             Lipsum lipsumGenerator = new Lipsum(LipsumFlavor.ChildHarold, minWords: numberOfWords);
-
+            
+            Console.WriteLine("Random Lipsum Text:");
+            
             for (int i = 0; i < count; i++)
             {
                 string lipsumRandom = lipsumGenerator.GetValue();
