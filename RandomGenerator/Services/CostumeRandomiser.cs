@@ -5,58 +5,62 @@ namespace RandomGenerator.Services
 {
     internal class CostumeRandomiser
     {
-        static void GenerateFullName(int count)
+        internal void GenerateFullName(int count)
         {
             RealNames realNameGenerator = new RealNames();
 
-            Console.WriteLine("Full Names:");
-
+            PrintMassege("Full Names:");
+            
             for (int i = 0; i < count; i++)
             {
                 string fullNameRandom = realNameGenerator.GetValue();
-                Console.WriteLine(fullNameRandom);
+                PrintMassege(fullNameRandom);
             }
         }
 
-        static void GenerateEmailAddress(int count)
+        internal void GenerateEmailAddress(int count)
         {
             EmailAddresses emailGenerator = new EmailAddresses();
 
-            Console.WriteLine("Email Adresses:");
+            PrintMassege("Email Adresses:");
 
             for (int i = 0; i < count; i++)
             {
                 string emailRandom = emailGenerator.GetValue();
-                Console.WriteLine(emailRandom);
+                PrintMassege(emailRandom);
             }
         }
 
-        static void GenerateIntRange(int count, int min, int max)
+        internal void GenerateIntRange(int count, int min, int max)
         {
             IntRange intGenerator = new IntRange(min: min, max: max);
 
-            Console.WriteLine("Random Numbers:");
+            PrintMassege("Random Numbers:");
 
             for (int i = 0; i < count; i++)
             {
                 int intRandom = intGenerator.GetValue();
-                Console.WriteLine(intRandom);
+
+                PrintMassege(intRandom.ToString());
             }
         }
 
-        static void GenerateLoremIpsum(int count, int numberOfWords)
+        internal void GenerateLoremIpsum(int count, int numberOfWords)
         {
             Lipsum lipsumGenerator = new Lipsum(LipsumFlavor.ChildHarold, minWords: numberOfWords);
 
-            Console.WriteLine("Random Lipsum Text:");
+            PrintMassege("Random Lipsun Text:");
 
             for (int i = 0; i < count; i++)
             {
                 string lipsumRandom = lipsumGenerator.GetValue();
-                Console.WriteLine(lipsumRandom);
+                PrintMassege(lipsumRandom);
             }
         }
 
-
+        private void PrintMassege(string massege) 
+        {
+            Console.WriteLine(massege);
+        }
     }
 }

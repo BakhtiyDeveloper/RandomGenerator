@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RandomGenerator.Services;
+using System;
 using Tynamix.ObjectFiller;
 
 
@@ -8,6 +9,8 @@ namespace RandomGenerator
     {
         static void Main(string[] args)
         {
+            CostumeRandomiser costumeRandomiser = new CostumeRandomiser();
+            
             string yesOrNo;
             do
             {
@@ -31,11 +34,11 @@ namespace RandomGenerator
 
                     if (userInputChoiceValue == 1)
                     {
-                        GenerateFullName(count: userInputValue);
+                        costumeRandomiser.GenerateFullName(count: userInputValue);
                     }
                     else if (userInputChoiceValue == 2)
                     {
-                        GenerateEmailAddress(count: userInputValue);
+                        costumeRandomiser.GenerateEmailAddress(count: userInputValue);
                     }
                     else if (userInputChoiceValue == 3)
                     {
@@ -46,7 +49,7 @@ namespace RandomGenerator
                         Console.Write("Enter a random starting value: ");
                         string userInputMax = Console.ReadLine();
                         int userInputMaxValue = Convert.ToInt32(userInputMax);
-                        GenerateIntRange(count: userInputValue, min: userInputMinValue, max: userInputMaxValue);
+                        costumeRandomiser.GenerateIntRange(count: userInputValue, min: userInputMinValue, max: userInputMaxValue);
                     }
                     else if (userInputChoiceValue == 4)
                     {
@@ -54,7 +57,7 @@ namespace RandomGenerator
                         Console.Write("Enter the number of words: ");
                         string userInputLipsum = Console.ReadLine();
                         int userInputLipsumValue = Convert.ToInt32(userInputLipsum);
-                        GenerateLoremIpsum(count: userInputValue, numberOfWords: userInputLipsumValue);
+                        costumeRandomiser.GenerateLoremIpsum(count: userInputValue, numberOfWords: userInputLipsumValue);
                     }
                     else
                     {
@@ -73,7 +76,9 @@ namespace RandomGenerator
             } while (yesOrNo.ToLower() == "yes" || yesOrNo.ToLower() == "y");
 
             Console.WriteLine("Thank you for using our program");
-        }                
+        }
+        
+
         
     }
 }
